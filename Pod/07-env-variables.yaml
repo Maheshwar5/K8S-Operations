@@ -9,7 +9,13 @@ spec:
   - name: nginx
     image: nginx
     env:
-    - name: course
-      value: kubernetes
-    - name: trainer
-      value: selfpaced   
+    - name: vehicle_DB
+      valueFrom: 
+        configMapKeyRef:
+          name: vehicle-config
+          key: vehicle
+    - name: build
+      valueFrom:
+         configMapKeyRef:
+           name: vehicle-config
+           key: build_duration
