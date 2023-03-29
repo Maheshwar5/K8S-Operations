@@ -1,0 +1,15 @@
+
+---
+# Image-Pull-Policy
+# We're asking to download the image from Docker Hub everytime.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx  
+    ImagePullPolicy: Always
+    ports:
+    - containerPort: 80
