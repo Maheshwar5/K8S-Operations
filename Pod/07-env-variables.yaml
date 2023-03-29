@@ -1,4 +1,5 @@
 ---
+# In projects we ma've Hundred of variables
 apiVersion: v1
 kind: Pod
 metadata:
@@ -11,4 +12,4 @@ spec:
     - name: course
       value: kubernetes
     - name: trainer
-      value: selfpaced       
+      value: selfpaced   
