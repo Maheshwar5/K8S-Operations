@@ -5,7 +5,7 @@
 # - inside request, it is a soft limit
 # - initially it gets only what values we mentioned in requests under resources.
 # - If it needs to consume more resources, then it can go up to the values mentioned in limits section. The values are the maximum.
-
+---
 apiVersion: v1
 kind: Pod
 metadata:
