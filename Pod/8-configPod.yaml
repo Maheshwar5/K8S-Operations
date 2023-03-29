@@ -1,0 +1,21 @@
+---
+# In projects we ma've Hundred of variables
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name: vehicle_DB
+      valueFrom: 
+        configMapKeyRef:
+          name: vehicle-config
+          key: vehicle
+    - name: build
+      valueFrom:
+         configMapKeyRef:
+           name: vehicle-config
+           key: build_duration
