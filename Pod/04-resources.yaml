@@ -1,0 +1,23 @@
+---
+# resources
+# How can you limit the Pod not to use all the resources of your system?
+# - We'll limit the Pod using the requests & limits
+# - inside request, it is a soft limit
+# - initially it gets only what values we mentioned in requests under resources.
+# - If it needs to consume more resources, then it can go up to the values mentioned in limits section. The values are the maximum.
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m" # 1cpu = 1000m
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
