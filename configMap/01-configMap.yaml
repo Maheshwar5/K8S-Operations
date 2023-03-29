@@ -4,4 +4,4 @@ metadata:
   name: vehicle-config
 data:
   vehicle: Mercedes-Benz
-  build_duration: 27hrs
+  build_duration: 30hrs
