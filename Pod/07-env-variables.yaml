@@ -1,0 +1,14 @@
+---
+apiVersion:
+kind: Pod
+metadata:
+  name: env
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name: course
+      value: kubernetes
+    - name: trainer
+      value: selfpaced       
