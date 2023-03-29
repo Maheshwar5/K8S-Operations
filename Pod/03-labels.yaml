@@ -1,0 +1,15 @@
+# Labels 
+# We use labels to hold some key-value data. 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: label-pod
+  labels:
+    course: k8s
+    duration: 25hrs
+    trainer: selfpaced
+spec:
+  containers:
+  - name: nginx
+    image: nginx    
