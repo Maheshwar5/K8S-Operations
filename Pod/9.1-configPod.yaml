@@ -1,0 +1,12 @@
+# Instead of refer everything from 08-configPod, we can directly refer 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: config-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    envFrom:
+      - configMapRef:
+          name: vehicle-config

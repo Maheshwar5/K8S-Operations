@@ -8,46 +8,19 @@ Pod vs Container:
 - Pod can have multiple containers
 
 
-Pod:
+------------------------------------------------------------------------
 
-Ex: pod.yaml
+liveness probe:
+liveness probe --> when containers starts running
 
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nginx
-  namespace: roboshop
-spec:
-  containers:
-  - image: nginx:1.14.2
-    name: nginx
-    ports:
-      - containerPort: 80 
+readiness probe:
+readiness probe --> Whether the container is ready to serve the requests or not
 
-$ kubectl apply -f podyaml
+Example: If we're running nginx container, but nginx server taking time to be up and running
+If you do liveness probe, it'll fail.
+
+First readiness probe, what it does is, it gives sometime to the container to becomme ready.
+
+liveness probe is when container is ready it will check whether container is keep on running or not.
 
 
-$ kubectl get po    
-$ kubectl get po -o wide
-
-- To get pods specification in yaml format
-$ kubectl get po -o yaml
-
-
-
-
-$ kubectl get po -n roboshop -o wide
-
-IP
-192.168.xx.xxx
-
-- let us login to instances to check access to pods
-
-Take private IP of worker instance and login
-
-$ curl 192.168.xx.xxx
-
-you'll see welcome message!
-
-
-- But you cannot access this outside of the nodes.
