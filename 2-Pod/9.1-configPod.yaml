@@ -1,4 +1,4 @@
-# Instead of refer everything from 08-configPod, we can directly refer 
+# Instead of refer everything from 09-configPod, we can directly refer 
 apiVersion: v1
 kind: Pod
 metadata:
