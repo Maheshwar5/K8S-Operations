@@ -9,6 +9,8 @@ metadata:
     course: k8s
     duration: 25hrs
     trainer: selfpaced
+  annotations: 
+    org.docker.kubernetes.Image.maintainer: siva    
 spec:
   containers:
   - name: nginx
