@@ -6,7 +6,7 @@ spec:
   containers:
   - image: nginx
     name: nginx
-    livenneesProbe:
+    livenessProbe:
       httpGet:
         path: /
         port: 80
