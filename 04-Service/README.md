@@ -123,3 +123,71 @@ labels & selector reference:
 https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 
 
+
+
+
+# Types of services in kubernetes:
+  ===============================
+
+  In service we've three types:
+=============================
+1. Cluster IP --> Internal to K8S cluster. It only works for Pod to Pod communication.
+
+
+Scenario:
+
+debug Pod        user-service      nginx
+
+- We cannot access this ngix pod from outside with clusterIP.
+- The clusterIP is useful only for internal communication of the Pods.
+- You can't access this nginx Pod from internet.
+
+For this purpose we've further service called NodePort.
+
+
+2. NodePort:
+
+Nodeport is the type of service, we can expose the port of the node actually.
+
+- This is the Node, a port will be opened. 
+
+![alt text](nodeport.jpg)
+
+
+- Just like in containers we opened the Host Port.
+- Here the same happens in nodeport, a nodeport will be opened for the outside purpose.
+
+- From internet you can access this.
+
+- Nodeport is the type of service, we can expose the port of the node actually. The container port will be attached to this nodeport.
+
+- Now, user call like this NODE-IP<NODE_PORT>  
+- Then, request comes to the nodeport, then 
+it'll forward the traffic to the container.
+
+[We did in Docker Host Port]
+
+
+- By default, if you not defined anything, then it'll be cluster IP.
+
+refernece NodePort: https://kubernetes.io/docs/concepts/services-networking/service/
+
+------------------------------
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: MyApp
+  ports:
+      # By default and for convenience, the `targetPort` is set to the same value as the `port` field.
+    - port: 80
+      targetPort: 80
+      # Optional field
+      # By default and for convenience, the Kubernetes control plane will allocate a port from a range (default: 30000-32767)
+      nodePort: 30007
+------------------------------
+
+
