@@ -1,5 +1,5 @@
 ---
-# In projects we ma've Hundred of variables
+# In projects we may've Hundred of variables
 apiVersion: v1
 kind: Pod
 metadata:
