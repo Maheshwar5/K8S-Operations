@@ -119,3 +119,7 @@ spec:
       targetPort: 9376
 
 
+labels & selector reference:
+https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+
+
