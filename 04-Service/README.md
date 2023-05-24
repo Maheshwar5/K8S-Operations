@@ -15,3 +15,16 @@ If we've multiple pods, we can attach those pods to the service and other pods c
 So, Container port will attached to this NodePort, so user call this NODE-IP <Node_Port>, request comes to this NodePort and it forward the traffic to the container.
 
 
+When NodePort is created, clusterIP is also get created automatically.
+
+When you use NodePort, it'll open the port in each and every Node in EKS cluster.  
+
+
+
+3. Load Balancers: 
+
+AWS
+Azure
+GCP
+
+
