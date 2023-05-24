@@ -4,7 +4,7 @@ kind: Pod
 metadata:
   name: nginx
   labels:
-    server: nginx # Configuring labels, we can configure any no. of labels!
+    server: nginx
 spec:
   containers:
   - name: nginx
