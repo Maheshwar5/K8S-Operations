@@ -41,6 +41,41 @@ Note: replicaset only maintains the number of Pods. It cannot update the version
 * Pod is a subset of replicaset.
 * replicaset is a subset of deployment
 
+
+* Deployment has two responsibilities:
+
+1. It needs to maintain zero downtime
+2. New version should be applied at the same time.
+
 * The highest object we've is deployment.
 * When ever deployment happens, it creates one replicaset and it manage the Pods through replicaset.
+
+
+# Scenario: If you change the vesrion of your application, let's say...
+
+nginx-alpine
+
+
+* Before that, let's give 10 replicas and change the version of the image.
+
+* When you apply with new version, within few seconds the new version 
+reflects. Means a zero downtime rolling update is happening.
+
+<!-- NAME                           READY   STATUS              RESTARTS   AGE
+nginx-deployment-547d878d89-2js5t   1/1     Running             0          62s
+nginx-deployment-547d878d89-4bcbs   1/1     Running             0          64s
+nginx-deployment-547d878d89-674sb   1/1     Running             0          63s
+nginx-deployment-547d878d89-cfhzx   1/1     Running             0          63s
+nginx-deployment-547d878d89-dmr5f   1/1     Running             0          64s
+nginx-deployment-547d878d89-drzpr   1/1     Running             0          64s
+nginx-deployment-547d878d89-lzgnz   1/1     Running             0          64s
+nginx-deployment-547d878d89-stj6j   1/1     Terminating         0          63s
+nginx-deployment-547d878d89-x4djg   1/1     Terminating         0          63s
+nginx-deployment-547d878d89-zf6jn   1/1     Running             0          64s
+nginx-deployment-965685897-2ddhw    0/1     ContainerCreating   0          0s
+nginx-deployment-965685897-72mpw    0/1     ContainerCreating   0          0s
+nginx-deployment-965685897-8twv7    0/1     ContainerCreating   0          0s
+nginx-deployment-965685897-tbgc2    0/1     ContainerCreating   0          0s
+nginx-deployment-965685897-tz5lc    0/1     ContainerCreating   0          0s -->
+
 
