@@ -108,8 +108,8 @@ released v2, --> wrong
 rollback to v1. Actually it is diffcult.
 
 
-
 * With Deployments it is easy.
+
 
 
 # For checking status of the deployment:
@@ -117,4 +117,25 @@ rollback to v1. Actually it is diffcult.
 
 
 # History of the deployment:
-* kubectl rollout history deployment/nginx-deployment
+* kubectl rollout history deployment/nginx-deployment --revision=3
+
+
+# To undo the deployment, 
+# Rolling Back to Previous Revision:
+* kubectl rollout undo deployment/nginx-deployment --to-revision=3
+
+
+
+# Commands are useful in CI CD Process:
+# CICD Process:
+# create new deployment
+# check deployment status
+
+# If fine --> end pipeline --> success
+
+# If fails go to previous version --> kubectl rollout undo deployment/nginx-deployment --to-revision=3
+
+# --> error the pipeline --> end
+
+# So that, immediatel a notification will goes to everyone. 
+# Notification will say like... We tried to update to the new version, unfortunately it didn't go well, so we reverted back to the previous version. They will check with above commands.
