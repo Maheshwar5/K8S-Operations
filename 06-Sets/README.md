@@ -17,9 +17,6 @@ Ans: ReplicaSet
 
 * A controller that always guarantees the desired number of Pods are running.
 
-
-
-
 * Service is attaching to Pod based on Labels. 
 * Similarly, ReplicaSet also understand which Pod to scale, based on the Labels.
 
