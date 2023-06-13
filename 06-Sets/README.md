@@ -32,3 +32,15 @@ Note: replicaset only maintains the number of Pods. It cannot update the version
 * It can do updates to the application.
 
 
+* When you apply the yaml file to deploy Pods, Pods are getting created, but the pattern is little different.
+
+* Example for pod_name: nginx-deployment-7fb96c846b-kb9jh
+
+* podname = [deployment_name]-[replicaset]-[random-name]
+
+* Pod is a subset of replicaset.
+* replicaset is a subset of deployment
+
+* The highest object we've is deployment.
+* When ever deployment happens, it creates one replicaset and it manage the Pods through replicaset.
+
