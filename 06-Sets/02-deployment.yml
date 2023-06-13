@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  startegy:
+  strategy:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 2 # We asked for 10, we're okay if 9 are running at the time of upgrade
