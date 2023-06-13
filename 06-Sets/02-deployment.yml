@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  annotations:
+    deployment.kubernetes.io/change-cause: "Upgraded to version 2.0"
   labels:
     app: nginx
 spec:
@@ -24,3 +26,10 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+
+# For checking status of the deployment:
+# kubectl rollout status deployment/nginx-deployment
+
+
+# History of the deployment:
+# kubectl rollout history deployment/nginx-deployment

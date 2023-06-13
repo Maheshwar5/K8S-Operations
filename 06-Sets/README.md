@@ -88,3 +88,33 @@ reflects. Means a zero downtime rolling update is happening.
 # Refer update strategies!
 
 
+
+
+# Reference:
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
+
+* Another advantage of Deployment apart from replicaset is...
+
+* If i create multiple image versions,
+
+* For Example,
+
+* Application
+
+v1 is running
+released v2, --> wrong
+
+rollback to v1. Actually it is diffcult.
+
+
+
+* With Deployments it is easy.
+
+
+# For checking status of the deployment:
+* kubectl rollout status deployment/nginx-deployment
+
+
+# History of the deployment:
+* kubectl rollout history deployment/nginx-deployment
