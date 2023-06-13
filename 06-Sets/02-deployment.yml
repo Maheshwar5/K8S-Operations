@@ -9,6 +9,11 @@ spec:
   selector:
     matchLabels:
       app: nginx
+  startegy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2 # We asked for 10, we're okay if 9 are running at the time of upgrade
+      maxSurge: 2 # We asked for 10, we're okay at the time of upgrade, 11 are running   
   template:
     metadata:
       labels:
