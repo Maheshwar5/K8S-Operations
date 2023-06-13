@@ -23,27 +23,6 @@ Ans: ReplicaSet
 * Service is attaching to Pod based on Labels. 
 * Similarly, ReplicaSet also understand which Pod to scale, based on the Labels.
 
-Example yaml:
-apiVersion: apps/v1
-kind: ReplicaSet
-metadata:
-  name: nginx
-  labels:
-    app: nginx
-    tier: frontend
-spec:
-  # modify replicas according to your case
-  replicas: 3
-  selector:
-    matchLabels: # This sis the syntax, ReplicaSet uses to find which Pod should be scaled and maintain.
-      tier: frontend
-  template: # This is Pod template. Labels are related to Pod. 
-    metadata:
-      labels:
-        tier: frontend
-    spec:
-      containers:
-      - name: nginx
-        image: nginx
+
 
 
