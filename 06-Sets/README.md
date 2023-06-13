@@ -61,21 +61,30 @@ nginx-alpine
 * When you apply with new version, within few seconds the new version 
 reflects. Means a zero downtime rolling update is happening.
 
-<!-- NAME                           READY   STATUS              RESTARTS   AGE
-nginx-deployment-547d878d89-2js5t   1/1     Running             0          62s
-nginx-deployment-547d878d89-4bcbs   1/1     Running             0          64s
-nginx-deployment-547d878d89-674sb   1/1     Running             0          63s
-nginx-deployment-547d878d89-cfhzx   1/1     Running             0          63s
-nginx-deployment-547d878d89-dmr5f   1/1     Running             0          64s
-nginx-deployment-547d878d89-drzpr   1/1     Running             0          64s
-nginx-deployment-547d878d89-lzgnz   1/1     Running             0          64s
-nginx-deployment-547d878d89-stj6j   1/1     Terminating         0          63s
-nginx-deployment-547d878d89-x4djg   1/1     Terminating         0          63s
-nginx-deployment-547d878d89-zf6jn   1/1     Running             0          64s
-nginx-deployment-965685897-2ddhw    0/1     ContainerCreating   0          0s
-nginx-deployment-965685897-72mpw    0/1     ContainerCreating   0          0s
-nginx-deployment-965685897-8twv7    0/1     ContainerCreating   0          0s
-nginx-deployment-965685897-tbgc2    0/1     ContainerCreating   0          0s
-nginx-deployment-965685897-tz5lc    0/1     ContainerCreating   0          0s -->
+
+
+
+# Rolling Update:
+* Example: 10 pods are running, it'll create 11th pod with new version.
+
+* 10 pods are running
+* 11th pod with new version --> running
+* It'll remove the 10th old pod
+* 12th pod with new version --> running
+* It'll remove 9th old pod
+
+* This cycle goes until the 20th pod comes to running,
+
+* 20th pod --> running
+* 1st pod --> removed
+
+* This is what happens in the background. That's why Deployment is so much useful and during this operation, you can still access the pods, because other pods are running.
+
+* That's the main disadvantage of this approach. 
+
+* We can control this behaviour using RollingUpdate strategy.
+
+
+# Refer update strategies!
 
 
